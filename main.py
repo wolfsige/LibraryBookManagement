@@ -16,5 +16,16 @@ def main():
         lib.write(str(the_book.getCheck_out_Status()))
         lib.write("\n")
 
+    with open("Library.txt", "r") as r_lib:
+        title = r_lib.readline().rstrip("\n")
+        while title != "":
+            author = r_lib.readline().rstrip("\n")
+            check_out = r_lib.readline().rstrip()
+
+            the_book = Book.Book(title, author, int(check_out))
+            print(the_book.__str__())
+            print() #Console readability
+
+            title = r_lib.readline().rstrip("\n")
 
 main()
