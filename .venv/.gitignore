@@ -1,0 +1,8 @@
+# Ignore JetBrains IDE settings
+**/.idea/
+*.iml
+
+# Ignore Python bytecode
+__pycache__/
+*.py[cod]
+
