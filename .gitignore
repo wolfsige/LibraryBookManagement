@@ -1,6 +1,9 @@
 # Ignore JetBrains IDE settings
-**/.idea/
+.idea/
 *.iml
+
+# Ignore virtual environment
+.venv/
 
 # Ignore Python bytecode
 __pycache__/
