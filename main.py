@@ -8,24 +8,29 @@ def main():
 
     the_book = Book.Book(title, author, check_out)
 
+    writeLibrary(the_book)
+    readLibrary()
+
+def writeLibrary(object):
     with open("Library.txt", "a") as lib:
-        lib.write(the_book.getTitle())
+        lib.write(object.getTitle())
         lib.write("\n")
-        lib.write(the_book.getAuthor())
+        lib.write(object.getAuthor())
         lib.write("\n")
-        lib.write(str(the_book.getCheck_out_Status()))
+        lib.write(str(object.getCheck_out_Status()))
         lib.write("\n")
 
+def readLibrary():
     with open("Library.txt", "r") as r_lib:
+        all_books = []
         title = r_lib.readline().rstrip("\n")
         while title != "":
             author = r_lib.readline().rstrip("\n")
             check_out = r_lib.readline().rstrip()
 
             the_book = Book.Book(title, author, int(check_out))
-            print(the_book.__str__())
-            print() #Console readability
+            all_books.append(the_book)
 
             title = r_lib.readline().rstrip("\n")
-
+        return all_books
 main()
