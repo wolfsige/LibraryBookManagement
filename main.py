@@ -1,20 +1,25 @@
 import Book
 
 def main():
-    title = input("What is the books Title: ")
-    author = input("What is the books Author: ")
-    check_out = int(input("Enter 0 if the book is available, 1 if the book is checked out: "))
-    print() #Console Readability
-
-    the_book = Book.Book(title, author, check_out)
-
+    the_book = addBook()
     writeLibrary(the_book)
     the_library = readLibrary()
     showLibrary (the_library)
 
+def addBook():
+    title = input("What is the books Title: ")
+    author = input("What is the books Author: ")
+    check_out = int(input("Enter 0 if the book is available, 1 if the book is checked out: "))
+    print()  # Console Readability
+
+    the_book = Book.Book(title, author, check_out)
+
+    return the_book
+
 def showLibrary (books):
     for book in books:
         print(book)
+        print() # Console Readability
 
 
 def writeLibrary(object):
