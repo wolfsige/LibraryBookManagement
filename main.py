@@ -9,7 +9,13 @@ def main():
     the_book = Book.Book(title, author, check_out)
 
     writeLibrary(the_book)
-    readLibrary()
+    the_library = readLibrary()
+    showLibrbary(the_library)
+
+def showLibrbary(books):
+    for book in books:
+        print(book)
+
 
 def writeLibrary(object):
     with open("Library.txt", "a") as lib:
