@@ -10,9 +10,9 @@ def main():
 
     writeLibrary(the_book)
     the_library = readLibrary()
-    showLibrbary(the_library)
+    showLibrary (the_library)
 
-def showLibrbary(books):
+def showLibrary (books):
     for book in books:
         print(book)
 
