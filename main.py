@@ -1,8 +1,4 @@
-from pprint import pprint
-
 import Book
-
-# testing commits
 
 def main():
     more = "y"
@@ -44,9 +40,14 @@ def addBook():
     return the_book
 
 def showLibrary (books):
-    for book in books:
-        print(book)
+    if len(books) == 0:
         print() # Console Readability
+        print("The Library seems empty! Maybe you should add a Book!")
+        print() # Console Readability
+    else:
+        for book in books:
+            print(book)
+            print() # Console Readability
 
 
 def writeLibrary(object):
@@ -70,5 +71,6 @@ def readLibrary():
             all_books.append(the_book)
 
             title = r_lib.readline().rstrip("\n")
+
         return all_books
 main()
