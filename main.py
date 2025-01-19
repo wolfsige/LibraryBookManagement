@@ -1,10 +1,33 @@
 import Book
 
 def main():
-    the_book = addBook()
-    writeLibrary(the_book)
-    the_library = readLibrary()
-    showLibrary (the_library)
+    more = "y"
+    while more == "Y" or more == "y":
+        menu_num = menu()
+        match menu_num:
+            case 1:
+                the_book = addBook()
+                writeLibrary(the_book)
+            case 2:
+                print("coming soon")
+            case 3:
+                print("coming soon")
+            case 4:
+                the_library = readLibrary()
+                showLibrary (the_library)
+            case _:
+                print("Exited Program")
+        more = input("Return to main menu? (y/n): ")
+
+def menu():
+    print("1. Add Book\n"
+          "2. Check Out Book\n"
+          "3. Return Book\n"
+          "4. View Books\n"
+          "Enter any key to Exit\n"
+          )
+    num = int(input("Enter menu number: "))
+    return num
 
 def addBook():
     title = input("What is the books Title: ")
