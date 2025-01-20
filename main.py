@@ -10,18 +10,21 @@ def main():
                 writeLibrary(the_book)
             case 2:
                 book_name = input("What is the title of the book you are looking for? ")
-                look_up(book_name)
+                check_out(book_name)
             case 3:
                 print("coming soon")
             case 4:
                 the_library = readLibrary()
-                showLibrary (the_library)
+                showLibrary(the_library)
             case _:
                 print("Exited Program")
+        print()  # Console Readability
         more = input("Return to main menu? (y/n): ")
+    print() # Console Readability
+    print("Thank you for visiting our Library. Come again soon!")
 
 
-def look_up(searching_book):
+def check_out(searching_book):
     found_books = readLibrary()
 
     for x in found_books:
@@ -39,6 +42,7 @@ def look_up(searching_book):
             lib.write("\n")
 
 def menu():
+    print() # Console Readability
     print("1. Add Book\n"
           "2. Check Out Book\n"
           "3. Return Book\n"
@@ -65,8 +69,8 @@ def showLibrary (books):
         print() # Console Readability
     else:
         for book in books:
-            print(book)
             print() # Console Readability
+            print(book)
 
 
 def writeLibrary(object):
