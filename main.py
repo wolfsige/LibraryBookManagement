@@ -12,7 +12,8 @@ def main():
                 book_name = input("What is the title of the book you are looking for? ")
                 check_out(book_name)
             case 3:
-                print("coming soon")
+                book_name_in = input("What is the title of the book you are returning? ")
+                check_in(book_name_in)
             case 4:
                 the_library = readLibrary()
                 showLibrary(the_library)
@@ -23,6 +24,22 @@ def main():
     print() # Console Readability
     print("Thank you for visiting our Library. Come again soon!")
 
+def check_in(returning_book):
+    found_books = readLibrary()
+
+    for x in found_books:
+        if x.getTitle() == returning_book:
+            print("Thank you for returning this book!")
+            x.setCheck_out_Status(1)
+
+    with open("Library.txt", "w") as lib:
+        for y in found_books:
+            lib.write(y.getTitle())
+            lib.write("\n")
+            lib.write(y.getAuthor())
+            lib.write("\n")
+            lib.write(str(y.getCheck_out_Status()))
+            lib.write("\n")
 
 def check_out(searching_book):
     found_books = readLibrary()
