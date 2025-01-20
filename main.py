@@ -60,13 +60,16 @@ def check_out(searching_book):
 
 def menu():
     print() # Console Readability
-    print("1. Add Book\n"
-          "2. Check Out Book\n"
-          "3. Return Book\n"
-          "4. View Books\n"
-          "Enter any key to Exit\n"
-          )
-    num = int(input("Enter menu number: "))
+    try:
+        print("1. Add Book\n"
+              "2. Check Out Book\n"
+              "3. Return Book\n"
+              "4. View Books\n"
+              "Enter any key to Exit\n"
+              )
+        num = int(input("Enter menu number: "))
+    except:
+        return ValueError
     return num
 
 def addBook():
