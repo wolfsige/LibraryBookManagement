@@ -17,3 +17,6 @@ class Book:
         return (f"Title: {self.__Title}\n"
                 f"Author: {self.__Author}\n"
                 f"Checked Out: {'Yes' if self.__Check_Out_Status == 0 else 'No'}")
+
+    def setCheck_out_Status(self, new_status):
+        self.__Check_Out_Status = new_status

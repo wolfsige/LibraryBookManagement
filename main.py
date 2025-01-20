@@ -9,7 +9,8 @@ def main():
                 the_book = addBook()
                 writeLibrary(the_book)
             case 2:
-                print("coming soon")
+                book_name = input("What is the title of the book you are looking for? ")
+                look_up(book_name)
             case 3:
                 print("coming soon")
             case 4:
@@ -18,6 +19,24 @@ def main():
             case _:
                 print("Exited Program")
         more = input("Return to main menu? (y/n): ")
+
+
+def look_up(searching_book):
+    found_books = readLibrary()
+
+    for x in found_books:
+        if x.getTitle() == searching_book:
+            print("We found the book!")
+            x.setCheck_out_Status(0)
+
+    with open("Library.txt", "w") as lib:
+        for y in found_books:
+            lib.write(y.getTitle())
+            lib.write("\n")
+            lib.write(y.getAuthor())
+            lib.write("\n")
+            lib.write(str(y.getCheck_out_Status()))
+            lib.write("\n")
 
 def menu():
     print("1. Add Book\n"
