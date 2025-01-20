@@ -18,11 +18,16 @@ def main():
                 the_library = readLibrary()
                 showLibrary(the_library)
             case _:
-                print("Exited Program")
+                exit_app = input("Would you like to Exit the program (y/n)? ")
+                if exit_app == "y" or exit_app == "Y":
+                    print()  # Console Readability
+                    print("Thank you for visiting our Library. Come again soon!")
+                    print("Exited Program")
+                    exit()
         print()  # Console Readability
         more = input("Return to main menu? (y/n): ")
-    print() # Console Readability
-    print("Thank you for visiting our Library. Come again soon!")
+        print("Thank you for visiting our Library. Come again soon!")
+        print("Exited Program")
 
 def check_in(returning_book):
     found_books = readLibrary()
