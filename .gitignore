@@ -8,6 +8,3 @@
 # Ignore Python bytecode
 __pycache__/
 *.py[cod]
-
-# Ignore project files
-Library.txt
