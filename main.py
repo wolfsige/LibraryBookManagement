@@ -6,17 +6,17 @@ def main():
         menu_num = menu()
         match menu_num:
             case 1:
-                the_book = addBook()
-                writeLibrary(the_book)
+                the_book = add_book()
+                write_library(the_book)
             case 2:
                 book_name = input("What is the title of the book you are looking for? ").upper()
-                check_out(book_name)
+                check_out_book(book_name)
             case 3:
                 book_name_in = input("What is the title of the book you are returning? ").upper()
-                check_in(book_name_in)
+                check_in_book(book_name_in)
             case 4:
-                the_library = readLibrary()
-                showLibrary(the_library)
+                the_library = read_library()
+                show_library(the_library)
             case _:
                 exit_app = input("Would you like to Exit the program (y/n)? ")
                 if exit_app == "y" or exit_app == "Y":
@@ -29,8 +29,8 @@ def main():
         print("Thank you for visiting our Library. Come again soon!")
         print("Exited Program")
 
-def check_in(returning_book):
-    found_books = readLibrary()
+def check_in_book(returning_book):
+    found_books = read_library()
 
     for x in found_books:
         if x.getTitle() == returning_book:
@@ -46,8 +46,8 @@ def check_in(returning_book):
             lib.write(str(y.getCheck_out_Status()))
             lib.write("\n")
 
-def check_out(searching_book):
-    found_books = readLibrary()
+def check_out_book(searching_book):
+    found_books = read_library()
 
     for x in found_books:
         if x.getTitle() == searching_book:
@@ -73,11 +73,11 @@ def menu():
               "Enter any key to Exit\n"
               )
         num = int(input("Enter menu number: "))
-    except:
-        return ValueError
-    return num
+        return num
+    except ValueError:
+        print()
 
-def addBook():
+def add_book():
     title = input("What is the books Title: ").upper()
     author = input("What is the books Author: ").upper()
     check_out = 1
@@ -87,7 +87,7 @@ def addBook():
 
     return the_book
 
-def showLibrary (books):
+def show_library (books):
     if len(books) == 0:
         print() # Console Readability
         print("The Library seems empty! Maybe you should add a Book!")
@@ -98,16 +98,16 @@ def showLibrary (books):
             print(book)
 
 
-def writeLibrary(object):
+def write_library(book_object):
     with open("Library.txt", "a") as lib:
-        lib.write(object.getTitle())
+        lib.write(book_object.getTitle())
         lib.write("\n")
-        lib.write(object.getAuthor())
+        lib.write(book_object.getAuthor())
         lib.write("\n")
-        lib.write(str(object.getCheck_out_Status()))
+        lib.write(str(book_object.getCheck_out_Status()))
         lib.write("\n")
 
-def readLibrary():
+def read_library():
     with open("Library.txt", "r") as r_lib:
         all_books = []
         title = r_lib.readline().rstrip("\n")
