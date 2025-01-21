@@ -80,7 +80,7 @@ def menu():
 def addBook():
     title = input("What is the books Title: ").upper()
     author = input("What is the books Author: ").upper()
-    check_out = int(input("Enter 0 if the book is available, 1 if the book is checked out: "))
+    check_out = 1
     print()  # Console Readability
 
     the_book = Book.Book(title, author, check_out)
