@@ -9,10 +9,10 @@ def main():
                 the_book = addBook()
                 writeLibrary(the_book)
             case 2:
-                book_name = input("What is the title of the book you are looking for? ")
+                book_name = input("What is the title of the book you are looking for? ").upper()
                 check_out(book_name)
             case 3:
-                book_name_in = input("What is the title of the book you are returning? ")
+                book_name_in = input("What is the title of the book you are returning? ").upper()
                 check_in(book_name_in)
             case 4:
                 the_library = readLibrary()
@@ -78,8 +78,8 @@ def menu():
     return num
 
 def addBook():
-    title = input("What is the books Title: ")
-    author = input("What is the books Author: ")
+    title = input("What is the books Title: ").upper()
+    author = input("What is the books Author: ").upper()
     check_out = int(input("Enter 0 if the book is available, 1 if the book is checked out: "))
     print()  # Console Readability
 
